@@ -1,0 +1,176 @@
+/*
+   statusbar-overlay sets the background color for the overlay. Black text is the default when the statusbar plugin is not added. When the
+   statusbar plugin is added, it also adds default setting to make the content white via:
+
+       <preference name="StatusBarStyle" value="lightcontent"/>
+
+   Setting the background color to black will allow the default light content (white text/icons) to show on it. The statusbar plugin is included
+   in the config.xml file and will be added by the CLI when you build locally.
+
+   See https://github.com/apache/cordova-plugin-statusbar
+*/
+
+.statusbar-overlay {
+    background: #000000;
+}
+
+/* Change menu nav panel background and text color*/
+/*.panel.panel-right {
+    right: 0;
+    background-color: #f5f5f5;
+    color: #000;
+}*/
+
+
+/* Add hairline before and after list*/
+.list li:after {
+    content: '';
+    position: absolute;
+    background-color: rgba(0,0,0,.12);
+    display: block;
+    z-index: 15;
+    top: auto;
+    right: auto;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    width: 100%;
+    -webkit-transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
+}
+
+/* Add background image home page*/
+.home-screen-content {
+    position: relative;
+    background: linear-gradient(#f5f5f5, #21354a);
+    width: 100%;
+	height: 100%;
+    color: #fff;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.home-hi{
+    color: #000;
+}
+
+/* Mymarto Cards */
+.mm-mymarto-card .card-header {
+  display: block;
+  padding: 10px;
+  color: #000;
+}
+.mm-mymarto-card .mm-mymarto-avatar {
+  float: left;
+  margin-right: 10px;
+}
+.mm-mymarto-card .mm-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: #494949;
+}
+.mm-mymarto-card .mm-subtitle {
+  font-size: 13px;
+  font-weight: 700;
+  color: #21354a;
+}
+.mm-mymarto-card .mm-mymarto-name {
+  margin-left: 44px;
+  font-size: 14px;
+  font-weight: 500;
+}
+.mm-mymarto-card .mm-mymarto-date {
+  margin-left: 44px;
+  font-size: 13px;
+  color: #8e8e93;
+}
+.mm-mymarto-card .card-footer {
+  background: #21354a;
+  text-align: center;
+
+}
+.mm-mymarto-card .card-footer a {
+  color: #81848b;
+  font-weight: 500;
+}
+.mm-mymarto-card .card-content h3 {
+  display: block;
+  text-align: center;
+  font-size: 18px;
+  color: #21354a;
+}
+.mm-mymarto-card .card-content-padding {
+  padding: 15px 10px;
+}
+.mm-mymarto-card .card-content-padding .likes {
+  color: #8e8e93;
+}
+
+
+/*Side Nav*/
+.ite-padding {
+  margin-right: 10px;
+}
+
+
+/*Login*/
+.mm-login-card-footer {
+  color: #fff
+
+}
+.mm-mymarto-card .mm-sign-in {
+  font-size: 14px;
+  font-weight: 500;
+}
+.mm-mymarto-card .mm-sign-date {
+  font-size: 13px;
+  color: #8e8e93;
+}
+
+.loginscreen-bg {
+    position: relative;
+    background: linear-gradient(#fff, #f5f5f5);
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* About page */
+.about-content {
+    padding: 15px;
+}
+
+
+/* Delivery Details page */
+.mm-mymarto-card .mm-Ddtitle {
+  padding: 10px;
+  margin-left: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #494949;
+}
+
+.mm-mymarto-card .mm-Ddsubtitle {
+  margin-left: 20px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #21354a;
+}
+.mm-mymarto-card .mm-DdNoTetitle {
+  text-align: center;
+  font-size: 13px;
+  font-weight: 700;
+  color: #21354a;
+}
+.mm-mymarto-card .mm-DdNoTesubtitle {
+  margin-left: 20px;
+  padding: 10px 0px 20px 0px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #21354a;
+}
+.mm-mymarto-card .mm-Ddcall-padding {
+  padding: 15px 70px;
+}
+

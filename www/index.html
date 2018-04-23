@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src *; connect-src *; script-src * ">
+
+    <!-- Required meta tags-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="theme-color" content="#2196f3">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <!-- Your app title -->
+    <title>MyMarto</title>
+
+    <!-- This template defaults to the iOS CSS theme. To support both iOS and material design themes, see the Framework7 Tutorial at the link below:
+        http://www.idangero.us/framework7/tutorials/maintain-both-ios-and-material-themes-in-single-app.html
+     -->
+
+    <link rel="stylesheet" href="lib/framework7/css/framework7.ios.min.css">
+    <link rel="stylesheet" href="lib/framework7/css/framework7.ios.colors.min.css">
+    <link rel="stylesheet" href="lib/framework7/css/framework7.min.css">
+    <link rel="stylesheet" href="lib/framework7-icons/css/framework7-icons.css">
+    <link rel="stylesheet" href="lib/framework7/css/framework7.md.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body class="layout-black">
+   
+    <!-- Status bar overlay for full screen mode (PhoneGap) -->
+    <div class="statusbar-overlay"></div>
+
+    <!-- Panels overlay-->
+    <div class="panel-overlay"></div>
+    <!-- Left panel with reveal effect-->
+    <div class="panel panel-right panel-cover">
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="left">
+                    <a href="index.html" class="back link">
+                        <i class="icon icon-back"></i>
+                        <span>Home</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="content-block">
+            <div class="list list-block">
+                <ul>
+                    <li>
+                    <a href="../pages/ready.html" class="item-content item-link">
+                      <div class="">
+                        <div class="item-title"><i class="ite-padding icon f7-icons ios-only">bolt_round</i>Help</div>
+                      </div>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="settings/" class="item-content item-link">
+                      <div class="">
+                        <div class="item-title"><i class="ite-padding icon f7-icons ios-only">bolt_round</i> About</div>
+                      </div>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="settings/" class="item-content item-link">
+                      <div class="">
+                        <div class=""><i class="ite-padding icon icon-bars"></i>Setings</div>
+                      </div>
+                    </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div> -->
+    </div>
+
+    <!-- Views -->
+    <div class="views tabs toolbar-through navbar-through">
+            <!-- Your main view, should have "view-main" class -->
+        <div id="tab-home" class="view view-main tab active">
+                <!-- Top Navbar-->
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <!-- We need cool sliding animation on title element, so we have additional "sliding" class -->
+                    <div class="left">
+                        <img src="/img/mymarto-app-logo.png" width="auto" height="40" />
+                    </div>
+                    <div class="center sliding">
+                        MyMarto
+                    </div>
+                    <div class="right">
+                        <!--
+                          Right link contains only icon - additional "icon-only" class
+                          Additional "open-panel" class tells app to open panel when we click on this link
+                        -->
+                        <a href="#tab-more" class="tab-link">
+                            <i class="icon f7-icons ios-only">more_vertical_round</i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Pages container, because we use fixed-through navbar and toolbar, it has additional appropriate classes-->
+            <div class="pages navbar-through toolbar-through">
+                <!-- Page, "data-page" contains page name -->
+                <div data-page="index" class="page">
+                    <!-- Scrollable page content -->
+                    <div class="page-content home-screen-content">
+                        <div class="content-block">
+                            <h3 class="home-hi">Hi Sam Doers,</h3> 
+                            <div class="card mm-mymarto-card">
+                                <div class="card-header">
+                                    <div class="mm-mymarto-avatar">
+                                        <a href="#tab-ready" class="tab-link tab-pages no-animation">
+                                            <i class="icon f7-icons ios-only">bolt_round</i>
+                                        </a>
+                                    </div>
+                                    <div class="mm-mymarto-name">Ready for  delivery</div>
+                                    <div class="mm-mymarto-date">Monday at 3:47 PM</div>
+                                </div>
+                                <div class="card-content"><h3>7 <br>Available delivery </h3></div>
+                                <div class="card-footer">
+                                    <a href="#tab-ready" class="tab-link tab-pages button button-raised button-round color-green">
+                                        Accept
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="card mm-mymarto-card">
+                                <div class="card-header">
+                                    <div class="mm-mymarto-avatar">
+                                        <a href="#tab-todo" class="tab-link tab-pages no-animation">
+                                            <i class="icon f7-icons ios-only">collection</i>
+                                        </a>
+                                    </div>
+                                    <div class="mm-mymarto-name">Delivery to do</div>
+                                    <div class="mm-mymarto-date">Monday at 3:47 PM</div>
+                                    
+                                </div>
+                                <div class="card-content"><h3>2 <br>Delivery to do</h3></div>
+                                <div class="card-footer">
+                                    <a href="#tab-todo" class="tab-link tab-pages button button-raised button-round color-green">
+                                        Go delivey
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div>
+            <!-- Ready View -->
+        <div id="tab-ready" class="view tab">
+            <!-- Ready page will be loaded here dynamically from /ready/ route -->
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <div class="left">
+                        <img src="/img/mymarto-app-logo.png" width="auto" height="40" />
+                    </div>
+                    <div class="center sliding">
+                        Ready
+                    </div>
+                    <div class="right">
+                        <a href="#tab-more" class="tab-link">
+                            <i class="icon f7-icons ios-only">more_vertical_round</i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="pages navbar-fixed toolbar-fixed">
+                <div data-page="ready" class="page">
+                    <!--Page content goes here-->
+                    <div class="page-content home-screen-content">  
+                        <div class="content-block">
+                            <div class="card mm-mymarto-card">
+                                <div class="card-header">
+                                    <div class="mm-mymarto-avatar">
+                                        <i class="icon f7-icons ios-only">bolt_round</i>
+                                    </div>
+                                    <div class="mm-mymarto-name">Ready for delivery</div>
+                                    <div class="mm-mymarto-date">Monday at 3:47 PM</div>
+                                </div>
+                                <div class="card-content">
+                                    <div class="list media-list">
+                                        <ul>
+                                            <li class="item-content">
+                                                <div class="item-inner">
+                                                    <div class="item-title-row">
+                                                        <div class="mm-title">90 Chester Road, Sunderland, SR2 3EY</div>
+                                                    </div>
+                                                    <div class="mm-subtitle">ASAP</div>
+                                                </div>
+                                                <div class="row card-content-padding">
+                                                    <button class="button button-raised button-round color-blue">Accept</button>
+                                                </div>
+                                            </li>
+                                            <li class="item-content">
+                                                <div class="item-inner">
+                                                    <div class="item-title-row">
+                                                        <div class="mm-title">25 Gift Aid Road, Newcastle, NE5 3EY</div>
+                                                    </div>
+                                                    <div class="mm-subtitle">ASAP</div>
+                                                </div>
+                                                <div class="row card-content-padding">
+                                                    <button class="button button-raised button-round color-blue">Accept</button>
+                                                </div>
+                                            </li>
+                                            <li class="item-content">
+                                                <div class="item-inner">
+                                                    <div class="item-title-row">
+                                                        <div class="mm-title">25 Gift Aid Road, Newcastle, NE5 3EY</div>
+                                                    </div>
+                                                    <div class="mm-subtitle">ASAP</div>
+                                                </div>
+                                                <div class="row card-content-padding">
+                                                    <button class="button button-raised button-round color-blue">Accept</button>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="card-footer"><a href="login.html" class="link">January 20, 2015</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /End #tab-ready - Ready Tab -->
+            <!-- Todo View -->
+        <div id="tab-todo" class="view tab">
+            <!-- Todo page will be loaded here dynamically from /todo/ route -->
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <div class="left">
+                        <img src="/img/mymarto-app-logo.png" width="auto" height="35" />
+                    </div>
+                    <div class="center sliding">
+                        To Do
+                    </div>
+                    <div class="right">
+                        <a href="#tab-more" class="tab-link">
+                            <i class="icon f7-icons ios-only">more_vertical_round</i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="pages navbar-fixed toolbar-fixed">
+                <div data-page="todo" class="page">
+                    <!--Page content goes here-->
+                    <div class="page-content home-screen-content">  
+                        <div class="content-block">
+                            <div class="card mm-mymarto-card">
+                                <div class="card-header">
+                                    <div class="mm-mymarto-avatar">
+                                            <i class="icon f7-icons ios-only">collection</i>
+                                    </div>
+                                    <div class="mm-mymarto-name">Delivery to do list</div>
+                                    <div class="mm-mymarto-date">Monday at 3:47 PM</div>
+                                </div>
+                                <div class="card-content">
+                                    <div class="list media-list">
+                                        <ul>
+                                            <li class="item-content">
+                                                <div class="item-inner">
+                                                    <div class="item-title-row">
+                                                        <div class="mm-title">90 Chester Road, Sunderland, SR2 3EY</div>
+                                                    </div>
+                                                    <div class="mm-subtitle">ASAP</div>
+                                                    <div class="row card-content-padding">
+                                                        <a class="col button button-outline button-round">On my way</a>
+                                                        <a href="/pages/delivery-details.html" class="col button button-fill button-outline button-round color-blue">View details</a>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="item-content">
+                                                <div class="item-inner">
+                                                    <div class="item-title-row">
+                                                        <div class="mm-title">25 Gift Aid Road, Newcastle, NE5 3EY</div>
+                                                    </div>
+                                                    <div class="mm-subtitle">ASAP</div>
+                                                    <div class="row card-content-padding">
+                                                        <a class="col button button-outline button-round">On my way</a>
+                                                        <a href="/pages/delivery-details.html" class="col button button-fill button-outline button-round color-blue">View details</a>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="item-content">
+                                                <div class="item-inner">
+                                                    <div class="item-title-row">
+                                                        <div class="mm-title">25 Gift Aid Road, Newcastle, NE5 3EY</div>
+                                                    </div>
+                                                    <div class="mm-subtitle">ASAP</div>
+                                                    <div class="row card-content-padding">
+                                                        <a class="col button button-outline button-round">On my way</a>
+                                                        <a href="/pages/delivery-details.html" class="col button button-fill button-outline button-round color-blue">View details</a>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="card-footer"><a href="#" class="link">January 20, 2015</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /End #tab-todo - Todo Tab -->
+            <!-- History View -->
+        <div id="tab-history" class="view tab">
+            <!-- History page will be loaded here dynamically from /history/ route -->
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <div class="left">
+                        <img src="/img/mymarto-app-logo.png" width="auto" height="35" />
+                    </div>
+                    <div class="center sliding">
+                        History
+                    </div>
+                    <div class="right">
+                        <a href="#tab-more" class="tab-link">
+                            <i class="icon f7-icons ios-only">more_vertical_round</i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="pages navbar-fixed toolbar-fixed">
+                <div data-page="history" class="page">
+                    <!--Page content goes here-->
+                    <div class="page-content home-screen-content">  
+                        <div class="content-block">
+                            <div class="card mm-mymarto-card">
+                                <div class="card-header">
+                                    <div class="mm-mymarto-avatar">
+                                            <i class="icon f7-icons ios-only">list</i>
+                                    </div>
+                                    <div class="mm-mymarto-name">Delivered orders history</div>
+                                    <div class="mm-mymarto-date">Monday at 3:47 PM</div>
+                                </div>
+                                <div class="card-content">
+                                    <div class="list media-list">
+                                        <ul>
+                                            <li class="item-content">
+                                                <div class="item-inner">
+                                                    <div class="item-title-row">
+                                                        <div class="mm-title">25 Gift Aid Road, Newcastle, NE5 3EY</div>
+                                                    </div>
+                                                    <div class="mm-subtitle">ASAP</div>
+                                                </div>
+                                                <div class="row card-content-padding">
+                                                    <button class="button button-fill button-raised button-round color-gray">Delivered</button>
+                                                </div>
+                                            </li>
+                                            <li class="item-content">
+                                                <div class="item-inner">
+                                                    <div class="item-title-row">
+                                                        <div class="mm-title">25 Gift Aid Road, Newcastle, NE5 3EY</div>
+                                                    </div>
+                                                    <div class="mm-subtitle">ASAP</div>
+                                                </div>
+                                                <div class="row card-content-padding">
+                                                    <button class="button button-fill button-raised button-round color-gray">Delivered</button>
+                                                </div>
+                                            </li>
+                                            <li class="item-content">
+                                                <div class="item-inner">
+                                                    <div class="item-title-row">
+                                                        <div class="mm-title">25 Gift Aid Road, Newcastle, NE5 3EY</div>
+                                                    </div>
+                                                    <div class="mm-subtitle">ASAP</div>
+                                                </div>
+                                                <div class="row card-content-padding">
+                                                    <button class="button button-fill button-raised button-round color-gray">Delivered</button>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="card-footer"><a href="#" class="link">January 20, 2015</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /End #tab-history - History Tab -->
+
+        <!-- More View -->
+        <div id="tab-more" class="view tab">
+            <!-- More page will be loaded here dynamically from /history/ route -->
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <div class="left">
+                        <img src="/img/mymarto-app-logo.png" width="auto" height="35" />
+                    </div>
+                    <div class="center sliding">
+                        More
+                    </div>
+                    <div class="right">
+                        <a href="#tab-more" class="tab-link">
+                            <i class="icon f7-icons ios-only">more_vertical_round</i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="pages navbar-fixed toolbar-fixed">
+                <div data-page="more" class="page">
+                    <!--Page content goes here-->
+                    <div class="page-content home-screen-content">  
+                        <div class="content-block">
+                            <div class="card mm-mymarto-card">
+                                <div class="card-header">
+                                    <div class="mm-mymarto-name no-margin-left">Settings</div>
+                                </div>
+                                <div class="card-content">
+                                    <div class="list media-list">
+                                        <ul>
+                                            <li class="item-content">
+                                                <div class="item-inner">
+                                                    <div class="mm-mymarto-avatar">
+                                                        <a href="/help/" class="tab-link tab-pages no-animation">
+                                                            <i class="icon f7-icons ios-only">help</i>
+                                                        </a>
+                                                    </div>
+                                                    <div class="mm-title"><a href="/pages/help.html">Help</a></div>
+                                                </div>
+                                            </li>
+                                            <li class="item-content">
+                                                <div class="item-inner">
+                                                    <div class="">
+                                                        <div class="mm-mymarto-avatar">
+                                                            <a href="#tab-ready" class="tab-link tab-pages no-animation">
+                                                                <i class="icon f7-icons ios-only">info</i>
+                                                            </a>
+                                                        </div>
+                                                        <div class="mm-title"><a href="/about.html">About</a></div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="item-content">
+                                                <div class="item-inner">
+                                                    <div class="">
+                                                        <div class="mm-mymarto-avatar">
+                                                            <a href="/settings/" class="tab-link tab-pages no-animation">
+                                                                <i class="icon f7-icons ios-only">settings</i>
+                                                            </a>
+                                                        </div>
+                                                        <div class="mm-title"><a href="./pages/settings.html">Settiings</a></div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="card-footer"><a href="#" class="link">January 20, 2015</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /End #tab-More - More Tab -->
+
+            <!-- Login view-page layout starts here -->
+        <div class="login-screen modal-in">
+            <!-- Default view-page layout -->
+            <div class="view">
+                <div class="navbar theme-black">
+                    <div class="navbar-inner">
+                        <div class="center">Welcome</div>
+                        <div class="right">
+                            <a class="link close-login-screen icon-only"><i class="f7-icons">close</i></a>
+                        </div>
+                    </div>
+                </div><!--/ .navbar -->
+                <div class="page">
+                    <!-- page-content has additional login-screen content -->
+                <div class="page-content login-screen-content loginscreen-bg">
+                    <div class="login-screen-title">
+                        <img src="/img/logo_mm.jpg" width="auto" height="40" />
+                    </div>
+                            <!-- Login form -->
+                    <form>
+                        <div class="card mm-mymarto-card">
+                            <div class="card-header">
+                                <div class="mm-sign-in no-margin-left">Sign in to deliver</div>
+                            </div>
+                                <div class="card-content">
+                                    <div class="list">
+                                        <ul>
+                                            <li class="item-content item-input">
+                                                <div class="item-inner">
+                                                    <div class="item-input-wrap">
+                                                        <input type="text" name="username" placeholder="Username">
+                                                        <span class="input-clear-button"></span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="item-content item-input">
+                                                <div class="item-inner">
+                                                    <div class="item-input-wrap">
+                                                        <input type="password" name="password" placeholder="Password">
+                                                        <span class="input-clear-button"></span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="content-block">
+                                    <p class="text-center"><a href="#" class="color-black">Forgot Password?</a></p>
+                                    <button type="submit" form="login-form" class="button button-fill button-big button-round color-green uc-text fw" >
+                                            Sign In
+                                    </button>
+                                    <div class="block-footer">
+                                        Some text with login information.
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="mm-sign-date no-margin-left">Monday at 3:47 PM</div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+                <!-- Bottom Toolbar-->
+            <div class="toolbar tabbar theme-black tabbar-labels toolbar-bottom-md">
+                <div class="toolbar-inner">
+                    <a href="#tab-home" class="tab-link tab-pages active no-animation">
+                    <i class="icon f7-icons ios-only">home</i>
+                    <span class="tabbar-label">Home</span>
+                    </a>
+                    <a href="#tab-ready" class="tab-link tab-pages no-animation">
+                    <i class="icon f7-icons ios-only">bolt_round</i>
+                    <span class="tabbar-label">Ready</span>
+                    </a>
+                    <a href="#tab-todo" class="tab-link tab-page">
+                    <i class="icon f7-icons ios-only">collection</i>
+                    <span class="tabbar-label">Todo</span>
+                    </a>
+                    <a href="#tab-history" class="tab-link">
+                    <i class="icon f7-icons ios-only">list</i>
+                    <span class="tabbar-label">History</span>
+                    </a>
+                </div>
+            </div><!-- /End of Bottom Toolbar-->
+    </div><!--.views-->
+
+    
+
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="lib/framework7/js/framework7.min.js"></script>
+    <script type="text/javascript" src="js/routes.js"></script>
+    <script type="text/javascript" src="js/my-app.js"></script>
+
+
+</body>
+
+</html>
